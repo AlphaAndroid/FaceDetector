@@ -1,38 +1,38 @@
 {
   "stringTable": {
-    "0": "/home/petr/AndroidStudioProjects/MyNDKApplication/app/.cxx/cmake/debug/x86",
-    "1": "--target=i686-none-linux-android22 --gcc-toolchain=/home/petr/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/petr/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/linux-x86_64/sysroot -Dnative_lib_EXPORTS -I/home/petr/Документы/OpenCvCPP/OpenCV-android-sdk/sdk/native/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++14 -std=gnu++11 -O0 -fno-limit-debug-info -fPIC"
+    "0": "G:/AndroidProject/ndk-project/app/.cxx/cmake/debug/x86",
+    "1": "--target=i686-none-linux-android22 --gcc-toolchain=D:/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -IG:/AndroidProject/opencv-4.2.0-android-sdk/OpenCV-android-sdk/sdk/native/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++14 -std=gnu++11 -O0 -fno-limit-debug-info -fPIC"
   },
   "buildFiles": [
-    "/home/petr/Android/Sdk/ndk/21.0.6113669/build/cmake/android.toolchain.cmake",
-    "/home/petr/Android/Sdk/ndk/21.0.6113669/build/cmake/platforms.cmake",
-    "/home/petr/AndroidStudioProjects/MyNDKApplication/app/src/main/cpp/CMakeLists.txt"
+    "G:\\AndroidProject\\ndk-project\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "D:\\SDK\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake",
+    "D:\\SDK\\ndk\\21.0.6113669\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
-    "/home/petr/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/petr/AndroidStudioProjects/MyNDKApplication/app/.cxx/cmake/debug/x86\" clean"
+    "D:\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\AndroidProject\\ndk-project\\app\\.cxx\\cmake\\debug\\x86\" clean"
   ],
-  "buildTargetsCommand": "/home/petr/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/petr/AndroidStudioProjects/MyNDKApplication/app/.cxx/cmake/debug/x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "D:\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\AndroidProject\\ndk-project\\app\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Debug-x86": {
-      "buildCommand": "/home/petr/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/petr/AndroidStudioProjects/MyNDKApplication/app/.cxx/cmake/debug/x86\" native-lib",
+      "buildCommand": "D:\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\AndroidProject\\ndk-project\\app\\.cxx\\cmake\\debug\\x86\" native-lib",
       "buildType": "debug",
-      "toolchain": "1632000635",
+      "toolchain": "3006999035",
       "abi": "x86",
       "artifactName": "native-lib",
       "files": [
         {
-          "src": "/home/petr/AndroidStudioProjects/MyNDKApplication/app/src/main/cpp/native-lib.cpp",
+          "src": "G:\\AndroidProject\\ndk-project\\app\\src\\main\\cpp\\native-lib.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         }
       ],
       "headers": [],
-      "output": "/home/petr/AndroidStudioProjects/MyNDKApplication/app/build/intermediates/cmake/debug/obj/x86/libnative-lib.so"
+      "output": "G:\\AndroidProject\\ndk-project\\app\\build\\intermediates\\cmake\\debug\\obj\\x86\\libnative-lib.so"
     }
   },
   "toolchains": {
-    "1632000635": {
-      "cppCompilerExecutable": "/home/petr/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+    "3006999035": {
+      "cppCompilerExecutable": "D:\\SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
     }
   },
   "cFileExtensions": [],

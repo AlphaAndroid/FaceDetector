@@ -29,9 +29,7 @@ android {
     }
     sourceSets.main {
 
-        //jniLibs.srcDir 'src/main/jniLibs/'
-        //jni.srcDirs = []//'/home/petr/AndroidStudioProjects/MyNDKApplication/app/src/main/jniLibs'
-        jniLibs.srcDirs = ['src/main/jniLibs/']
+        jniLibs.srcDirs = ['src/main/jniLibs']
     }
     externalNativeBuild {
         cmake {
