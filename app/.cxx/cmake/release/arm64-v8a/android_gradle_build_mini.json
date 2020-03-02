@@ -1,19 +1,19 @@
 {
   "buildFiles": [
-    "G:\\AndroidProject\\ndk-project\\app\\src\\main\\cpp\\CMakeLists.txt",
-    "D:\\SDK\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake",
-    "D:\\SDK\\ndk\\21.0.6113669\\build\\cmake\\platforms.cmake"
+    "/home/petr/Android/Sdk/ndk/21.0.6113669/build/cmake/android.toolchain.cmake",
+    "/home/petr/Android/Sdk/ndk/21.0.6113669/build/cmake/platforms.cmake",
+    "/home/petr/AndroidStudioProjects/MyNDKApplication/app/src/main/cpp/CMakeLists.txt"
   ],
   "cleanCommands": [
-    "D:\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\AndroidProject\\ndk-project\\app\\.cxx\\cmake\\release\\arm64-v8a\" clean"
+    "/home/petr/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/petr/AndroidStudioProjects/MyNDKApplication/app/.cxx/cmake/release/arm64-v8a\" clean"
   ],
-  "buildTargetsCommand": "D:\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\AndroidProject\\ndk-project\\app\\.cxx\\cmake\\release\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "/home/petr/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/petr/AndroidStudioProjects/MyNDKApplication/app/.cxx/cmake/release/arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Release-arm64-v8a": {
       "artifactName": "native-lib",
-      "buildCommand": "D:\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\AndroidProject\\ndk-project\\app\\.cxx\\cmake\\release\\arm64-v8a\" native-lib",
+      "buildCommand": "/home/petr/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/petr/AndroidStudioProjects/MyNDKApplication/app/.cxx/cmake/release/arm64-v8a\" native-lib",
       "abi": "arm64-v8a",
-      "output": "G:\\AndroidProject\\ndk-project\\app\\build\\intermediates\\cmake\\release\\obj\\arm64-v8a\\libnative-lib.so"
+      "output": "/home/petr/AndroidStudioProjects/MyNDKApplication/app/build/intermediates/cmake/release/obj/arm64-v8a/libnative-lib.so"
     }
   }
 }

@@ -1,20 +1,20 @@
-Executable : D:\SDK\cmake\3.10.2.4988404\bin\cmake.exe
+Executable : /home/petr/Android/Sdk/cmake/3.10.2.4988404/bin/cmake
 arguments : 
--HG:\AndroidProject\ndk-project\opencv\libcxx_helper
--BG:\AndroidProject\ndk-project\opencv\.cxx\cmake\debug\armeabi-v7a
+-H/home/petr/AndroidStudioProjects/MyNDKApplication/opencv/libcxx_helper
+-B/home/petr/AndroidStudioProjects/MyNDKApplication/opencv/.cxx/cmake/debug/armeabi-v7a
 -DANDROID_ABI=armeabi-v7a
 -DANDROID_PLATFORM=android-22
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=G:\AndroidProject\ndk-project\opencv\build\intermediates\cmake\debug\obj\armeabi-v7a
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/petr/AndroidStudioProjects/MyNDKApplication/opencv/build/intermediates/cmake/debug/obj/armeabi-v7a
 -DCMAKE_BUILD_TYPE=Debug
--DANDROID_NDK=D:\SDK\ndk\21.0.6113669
+-DANDROID_NDK=/home/petr/Android/Sdk/ndk/21.0.6113669
 -DCMAKE_SYSTEM_NAME=Android
 -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
 -DCMAKE_SYSTEM_VERSION=22
 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
--DCMAKE_ANDROID_NDK=D:\SDK\ndk\21.0.6113669
--DCMAKE_TOOLCHAIN_FILE=D:\SDK\ndk\21.0.6113669\build\cmake\android.toolchain.cmake
+-DCMAKE_ANDROID_NDK=/home/petr/Android/Sdk/ndk/21.0.6113669
+-DCMAKE_TOOLCHAIN_FILE=/home/petr/Android/Sdk/ndk/21.0.6113669/build/cmake/android.toolchain.cmake
 -G Ninja
--DCMAKE_MAKE_PROGRAM=D:\SDK\cmake\3.10.2.4988404\bin\ninja.exe
+-DCMAKE_MAKE_PROGRAM=/home/petr/Android/Sdk/cmake/3.10.2.4988404/bin/ninja
 -DANDROID_STL=c++_shared
 jvmArgs : 
 

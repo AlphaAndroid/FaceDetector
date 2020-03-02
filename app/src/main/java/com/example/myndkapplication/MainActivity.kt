@@ -1,8 +1,10 @@
 package com.example.myndkapplication
 
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.opencv.android.Utils
@@ -12,22 +14,60 @@ import org.opencv.imgproc.Imgproc
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+
+        init {
+            System.loadLibrary("native-lib")
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val image = stringFromJNI()
-        Log.d("Alpha", "size ? $image")
+        //val image = getImageFromPath()
+        //try {
+        //    val mat = Mat(image)
+        //    imageView.setImageBitmap(convertMatToBitMap(mat))
+        //} catch (exception: UnsupportedOperationException) {
+        //    Toast.makeText(
+        //        this,
+        //        "Loading error. Image exist? or permission granted?",
+        //        Toast.LENGTH_LONG
+        //    ).show()
+        //}
+        //val bitmap = (imageView.drawable as BitmapDrawable).bitmap
+        val bitmap = BitmapFactory.decodeResource(resources, R.drawable.test)
+        Log.d("Alpha", "0")
+        sendBitmapToNative(bitmap)
+        Log.d("Alpha", "1")
+        //imageView.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 150, 150, false))
+        Log.d("Alpha", "2")
 
-        val mat = image?.let { Mat(it) }
-        mat?.let { imageView.setImageBitmap(convertMatToBitMap(it)) }
+        Log.d("Alpha", "test 0")
+        val mat = Mat()
+        Utils.bitmapToMat(bitmap, mat)
+        setNativeMat(mat.nativeObjAddr, 15000, 15000, false)
+        Log.d("Alpha", "test 1")
+        Bitmap.createScaledBitmap(bitmap, 15000, 15000, false)
+        Log.d("Alpha", "test 2")
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    external fun stringFromJNI(): Long?
+    private fun sendBitmapToNative(bitmap: Bitmap) {
+        val mat = Mat()
+        Utils.bitmapToMat(bitmap, mat)
+        setNativeMat(mat.nativeObjAddr, 150, 150, false)
+        try {
+            //val matImage = Mat(image)
+            imageView.setImageBitmap(convertMatToBitMap(mat))
+        } catch (exception: UnsupportedOperationException) {
+            Toast.makeText(
+                this,
+                "Loading error. Image exist? or permission granted?",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
 
     private fun convertMatToBitMap(input: Mat): Bitmap? {
         var bmp: Bitmap? = null
@@ -44,10 +84,7 @@ class MainActivity : AppCompatActivity() {
         return bmp
     }
 
-    companion object {
+    private external fun getImageFromPath(): Long
 
-        init {
-            System.loadLibrary("native-lib")
-        }
-    }
+    private external fun setNativeMat(mat: Long, width: Int, height: Int, isIncrease: Boolean)
 }
