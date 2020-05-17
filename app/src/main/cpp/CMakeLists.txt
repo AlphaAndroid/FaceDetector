@@ -1,19 +1,20 @@
 set(CMAKE_VERBOSE_MAKEFILE on)
 
 #Windows
-#include_directories(G:/AndroidProject/opencv-4.2.0-android-sdk/OpenCV-android-sdk/sdk/native/jni/include)
-#add_library(lib_opencv SHARED IMPORTED)
-#set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION
-#        G:/AndroidProject/ndk-project/app/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so)
+include_directories(G:/AndroidProject/opencv-4.2.0-android-sdk/OpenCV-android-sdk/sdk/native/jni/include)
+add_library(lib_opencv SHARED IMPORTED)
+set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION
+        G:/AndroidProject/ndk-project/app/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so)
 ##################################################################################################
 
 #Linux
-include_directories(/home/petr/Документы/OpenCvCPP/OpenCV-android-sdk/sdk/native/jni/include)
-add_library(lib_opencv SHARED IMPORTED)
-set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION
-        /home/petr/AndroidStudioProjects/MyNDKApplication/app/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so)
+#include_directories(/home/petr/Документы/OpenCvCPP/OpenCV-android-sdk/sdk/native/jni/include)
+#add_library(lib_opencv SHARED IMPORTED)
+#set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION
+#        /home/petr/AndroidStudioProjects/MyNDKApplication/app/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so)
+#
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 # For more information about using CMake with Android Studio, read the
 # documentation: https://d.android.com/studio/projects/add-native-code.html
 

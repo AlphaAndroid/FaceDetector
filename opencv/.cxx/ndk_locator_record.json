@@ -1,5 +1,5 @@
 {
-  "ndkFolder": "/home/petr/Android/Sdk/ndk/21.0.6113669",
+  "ndkFolder": "D:\\SDK\\ndk\\21.0.6113669",
   "messages": [
     {
       "level": "INFO",
@@ -15,23 +15,23 @@
     },
     {
       "level": "INFO",
-      "message": "sdkFolder is /home/petr/Android/Sdk"
+      "message": "sdkFolder is D:\\SDK"
     },
     {
       "level": "INFO",
-      "message": "Considering /home/petr/Android/Sdk/ndk-bundle in SDK ndk-bundle folder"
+      "message": "Considering D:\\SDK\\ndk-bundle in SDK ndk-bundle folder"
     },
     {
       "level": "INFO",
-      "message": "Considering /home/petr/Android/Sdk/ndk/21.0.6113669 in SDK ndk folder"
+      "message": "Considering D:\\SDK\\ndk\\21.0.6113669 in SDK ndk folder"
     },
     {
       "level": "INFO",
-      "message": "Rejected /home/petr/Android/Sdk/ndk-bundle in SDK ndk-bundle folder because that location has no source.properties"
+      "message": "Rejected D:\\SDK\\ndk-bundle in SDK ndk-bundle folder because that location has no source.properties"
     },
     {
       "level": "INFO",
-      "message": "No user requested version, choosing /home/petr/Android/Sdk/ndk/21.0.6113669 which is version 21.0.6113669"
+      "message": "No user requested version, choosing D:\\SDK\\ndk\\21.0.6113669 which is version 21.0.6113669"
     }
   ]
 }
