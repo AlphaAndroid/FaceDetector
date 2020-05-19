@@ -1,6 +1,7 @@
 package com.example.myndkapplication
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -12,10 +13,18 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
+import org.opencv.android.BaseLoaderCallback
+import org.opencv.android.LoaderCallbackInterface
+import org.opencv.core.Mat
+import org.opencv.core.MatOfRect
+import org.opencv.core.Scalar
+import org.opencv.core.Size
+import org.opencv.imgproc.Imgproc
+import org.opencv.objdetect.CascadeClassifier
 import java.io.File
+import java.io.FileOutputStream
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-
 
 typealias LumaListener = (fakeImage: Bitmap) -> Unit
 
@@ -28,7 +37,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
-
 
     companion object {
 
@@ -88,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                 .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                 .build()
                 .also {
-                    it.setAnalyzer(cameraExecutor, LuminosityAnalyzer { luma ->
+                    it.setAnalyzer(cameraExecutor, LuminosityAnalyzer(this) { luma ->
                         Log.d("Alpha", "Average luminosity: $luma")
                         runOnUiThread {
                             fakePreview.setImageBitmap(luma)
@@ -109,6 +117,7 @@ class MainActivity : AppCompatActivity() {
                     this, cameraSelector, preview, imageAnalyzer
                 )
                 preview?.setSurfaceProvider(viewFinder.createSurfaceProvider(camera?.cameraInfo))
+
             } catch (exc: Exception) {
                 Log.e(TAG, "Use case binding failed", exc)
             }
