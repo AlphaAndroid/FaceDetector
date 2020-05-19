@@ -41,10 +41,6 @@
   },
   {
     "level": "INFO",
-    "message": "deleted unexpected build output G:\\AndroidProject\\ndk-project\\opencv\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libc++_shared.so in incremental regenerate"
-  },
-  {
-    "level": "INFO",
     "message": "write command file G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cmake\\debug\\armeabi-v7a\\build_command.txt"
   },
   {
