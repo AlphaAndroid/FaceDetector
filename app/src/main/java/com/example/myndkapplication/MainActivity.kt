@@ -1,28 +1,19 @@
 package com.example.myndkapplication
 
 import android.Manifest
-import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.core.*
+import androidx.camera.core.Camera
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageAnalysis
+import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
-import org.opencv.android.BaseLoaderCallback
-import org.opencv.android.LoaderCallbackInterface
-import org.opencv.core.Mat
-import org.opencv.core.MatOfRect
-import org.opencv.core.Scalar
-import org.opencv.core.Size
-import org.opencv.imgproc.Imgproc
-import org.opencv.objdetect.CascadeClassifier
-import java.io.File
-import java.io.FileOutputStream
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -31,11 +22,9 @@ typealias LumaListener = (fakeImage: Bitmap) -> Unit
 class MainActivity : AppCompatActivity() {
 
     private var preview: Preview? = null
-    private var imageCapture: ImageCapture? = null
     private var imageAnalyzer: ImageAnalysis? = null
     private var camera: Camera? = null
 
-    private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
 
     companion object {
@@ -44,8 +33,6 @@ class MainActivity : AppCompatActivity() {
             System.loadLibrary("native-lib")
         }
 
-        private const val TAG = "CameraXBasic"
-        private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     }
@@ -54,7 +41,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Request camera permissions
         if (allPermissionsGranted()) {
             startCamera()
         } else {
@@ -86,40 +72,31 @@ class MainActivity : AppCompatActivity() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
         cameraProviderFuture.addListener(Runnable {
-            // Used to bind the lifecycle of cameras to the lifecycle owner
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-
-            // Preview
             preview = Preview.Builder().build()
 
             imageAnalyzer = ImageAnalysis.Builder()
                 .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                 .build()
                 .also {
-                    it.setAnalyzer(cameraExecutor, LuminosityAnalyzer(this) { luma ->
-                        Log.d("Alpha", "Average luminosity: $luma")
+                    it.setAnalyzer(cameraExecutor, ImageAnalyzer(this) { luma ->
                         runOnUiThread {
                             fakePreview.setImageBitmap(luma)
                         }
                     })
                 }
 
-            // Select back camera
             val cameraSelector =
                 CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_BACK).build()
 
             try {
-                // Unbind use cases before rebinding
                 cameraProvider.unbindAll()
-
-                // Bind use cases to camera
                 camera = cameraProvider.bindToLifecycle(
                     this, cameraSelector, preview, imageAnalyzer
                 )
                 preview?.setSurfaceProvider(viewFinder.createSurfaceProvider(camera?.cameraInfo))
 
             } catch (exc: Exception) {
-                Log.e(TAG, "Use case binding failed", exc)
             }
 
         }, ContextCompat.getMainExecutor(this))

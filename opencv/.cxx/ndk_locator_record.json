@@ -23,6 +23,10 @@
     },
     {
       "level": "INFO",
+      "message": "Considering D:\\SDK\\ndk\\20.0.5594570 in SDK ndk folder"
+    },
+    {
+      "level": "INFO",
       "message": "Considering D:\\SDK\\ndk\\21.0.6113669 in SDK ndk folder"
     },
     {

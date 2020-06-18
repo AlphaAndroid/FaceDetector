@@ -13,7 +13,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.nio.ByteBuffer
 
-class LuminosityAnalyzer(private val context: Context, private val listener: LumaListener) :
+class ImageAnalyzer(context: Context, private val listener: LumaListener) :
     ImageAnalysis.Analyzer {
 
     private var cascFile: File? = null
@@ -26,9 +26,8 @@ class LuminosityAnalyzer(private val context: Context, private val listener: Lum
         cascFile = File(cascadeDir, "haarcascade_frontalface_alt2.xml")
 
         val fos = FileOutputStream(cascFile)
-
         val buffer = ByteArray(4096)
-        var bytesRead: Int = 0
+        var bytesRead = 0
 
         while ({ bytesRead = inputStream.read(buffer); bytesRead }() != -1) {
             fos.write(buffer, 0, bytesRead)
@@ -37,12 +36,31 @@ class LuminosityAnalyzer(private val context: Context, private val listener: Lum
         inputStream.close()
         fos.close()
 
-        faceDetection = CascadeClassifier(cascFile!!.absolutePath)
-        if (faceDetection?.empty() == true) {
-            faceDetection = null
-        } else {
-            cascadeDir.delete()
+        cascFile?.let {
+            faceDetection = CascadeClassifier(it.absolutePath)
+            if (faceDetection?.empty() == true) {
+                faceDetection = null
+            } else {
+                cascadeDir.delete()
+            }
         }
+    }
+
+    @SuppressLint("UnsafeExperimentalUsageError")
+    override fun analyze(imageProxy: ImageProxy) {
+        val image = imageProxy.image
+        image?.let {
+            var mat = yuvToMat(it)
+            mat.let {
+                Core.flip(mat.t(), mat, 1)
+                mat = findFace(mat)
+                val bmp = Bitmap.createBitmap(mat.cols(), mat.rows(), Bitmap.Config.ARGB_8888)
+                Utils.matToBitmap(mat, bmp)
+
+                listener(bmp)
+            }
+        }
+        imageProxy.close()
     }
 
     private fun findFace(mat: Mat): Mat {
@@ -69,34 +87,5 @@ class LuminosityAnalyzer(private val context: Context, private val listener: Lum
             )
     }
         return emptyMat
-    }
-
-    private fun ByteBuffer.toByteArray(): ByteArray {
-        rewind()    // Rewind the buffer to zero
-        val data = ByteArray(remaining())
-        get(data)   // Copy the buffer into a byte array
-        return data // Return the byte array
-    }
-
-    @SuppressLint("UnsafeExperimentalUsageError")
-    override fun analyze(imageProxy: ImageProxy) {
-
-        val buffer = imageProxy.planes[0].buffer
-        val data = buffer.toByteArray()
-        val image = imageProxy.image
-
-        image?.let {
-            var mat = yuvToMat(it)
-            mat.let {
-                Core.flip(mat.t(), mat, 1)
-                mat = findFace(mat)
-                val bmp = Bitmap.createBitmap(mat.cols(), mat.rows(), Bitmap.Config.ARGB_8888)
-                Utils.matToBitmap(mat, bmp)
-
-                listener(bmp)
-            }
-        }
-
-        imageProxy.close()
     }
 }
