@@ -1,2 +1,2 @@
 # FaceDetector
-![](name-of-giphy.gif)
+![](FaceDetectionPreview.gif)
