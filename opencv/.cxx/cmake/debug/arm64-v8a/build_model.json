@@ -1,0 +1,74 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "G:\\AndroidProject\\ndk-project",
+      "sdkFolder": "D:\\SDK",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "G:\\AndroidProject\\ndk-project\\opencv\\build\\intermediates",
+      "gradleModulePathName": ":opencv",
+      "moduleRootFolder": "G:\\AndroidProject\\ndk-project\\opencv",
+      "makeFile": "G:\\AndroidProject\\ndk-project\\opencv\\libcxx_helper\\CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "compilerSettingsCacheFolder": "G:\\AndroidProject\\ndk-project\\.cxx",
+      "cxxFolder": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx",
+      "ndkFolder": "D:\\SDK\\ndk\\21.0.6113669",
+      "ndkVersion": "21.0.6113669",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [
+      "-DANDROID_STL\u003dc++_shared"
+    ],
+    "cFlagList": [],
+    "cppFlagsList": [],
+    "variantName": "debug",
+    "soFolder": "G:\\AndroidProject\\ndk-project\\opencv\\build\\intermediates\\cmake\\debug\\lib",
+    "objFolder": "G:\\AndroidProject\\ndk-project\\opencv\\build\\intermediates\\cmake\\debug\\obj",
+    "jsonFolder": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cmake\\debug",
+    "gradleBuildOutputFolder": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cxx\\debug",
+    "isDebuggableEnabled": true,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": [
+      "opencv_jni_shared"
+    ]
+  },
+  "abi": "ARM64_V8A",
+  "abiPlatformVersion": 22,
+  "cxxBuildFolder": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cmake\\debug\\arm64-v8a",
+  "jsonFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cmake\\debug\\arm64-v8a\\android_gradle_build.json",
+  "gradleBuildOutputFolder": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cxx\\debug\\arm64-v8a",
+  "objFolder": "G:\\AndroidProject\\ndk-project\\opencv\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a",
+  "buildCommandFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cmake\\debug\\arm64-v8a\\build_command.txt",
+  "buildOutputFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cmake\\debug\\arm64-v8a\\build_output.txt",
+  "modelOutputFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cmake\\debug\\arm64-v8a\\build_model.json",
+  "cmake": {
+    "cmakeListsWrapperFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cxx\\debug\\arm64-v8a\\CMakeLists.txt",
+    "toolchainWrapperFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cxx\\debug\\arm64-v8a\\android_gradle_build.toolchain.cmake",
+    "buildGenerationStateFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cxx\\debug\\arm64-v8a\\build_generation_state.json",
+    "cacheKeyFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cxx\\debug\\arm64-v8a\\compiler_cache_key.json",
+    "compilerCacheUseFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cxx\\debug\\arm64-v8a\\compiler_cache_use.json",
+    "compilerCacheWriteFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cxx\\debug\\arm64-v8a\\compiler_cache_write.json",
+    "toolchainSettingsFromCacheFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cxx\\debug\\arm64-v8a\\compiler_settings_cache.cmake",
+    "cmakeWrappingBaseFolder": "."
+  },
+  "jsonGenerationLoggingRecordFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cmake\\debug\\arm64-v8a\\json_generation_record.json",
+  "compileCommandsJsonFile": "G:\\AndroidProject\\ndk-project\\opencv\\.cxx\\cmake\\debug\\arm64-v8a\\compile_commands.json"
+}
